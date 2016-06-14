@@ -13,17 +13,17 @@ var testPlant = {
     name: "Ma plante"
 };
 
-client.post('/plants', testPlant, function (err, req, res, plants) {
+client.post('/classes', testPlant, function (err, req, res, plants) {
     if (err) {
         console.log("An error ocurred >>>>>>");
         console.log(err);
     } else {
         console.log('Plant saved >>>>>>>');
-        console.log(plants);
+        console.log(classes);
     }
 });
 
-client.get('/plants', function (err, req, res, products) {
+client.get('/classes', function (err, req, res, products) {
     if (err) {
         console.log("An error ocurred >>>>>>");
         console.log(err);
@@ -35,11 +35,10 @@ client.get('/plants', function (err, req, res, products) {
 });
 
 testPlant.name = "New Name 6";
-client.put('/plants/' + testPlant.id, testPlant, function (err, req, res, status) {
+client.put('/classes/' + testPlant.id, testPlant, function (err, req, res, status) {
     if (err) {
         console.log("An error ocurred  on edition >>>>>>");
         console.log(err);
-        console.log(JSON.stringify(res));
     } else {
         console.log('Product saved >>>>>>>');
         console.log(status);

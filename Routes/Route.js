@@ -1,11 +1,14 @@
-module.exports = function Route(db, collections)
+module.exports = function Route(db, collections, fs,readline)
 { 
+    console.log("collections");
+    console.log(collections);
     Repository = require("../Repositories/RepositoryAbstract");
 
     this.routes = [];
 
     for (var i = 0; i < collections.length; i++) {
         collection = collections[i].name;
+        console.log(collection);
         var repository = new Repository(db, collection);
         routes = [
             {
@@ -39,5 +42,23 @@ module.exports = function Route(db, collections)
         ];
         this.routes = this.routes.concat(routes);
     };
+    jsClientFile = {
+        route: "/classDownloader.js",
+        method: "get",
+        callback: function(req, res, next) {
+            fs.readFile("classDownloader.js", "binary", function(err, file) {
+                if(err) {        
+                    res.writeHead(500, {"Content-Type": "application/javascript"});
+                    res.write(err + "\n");
+                    res.end();
+                    return;
+                }
 
+                res.writeHead(200);
+                res.write(file, "binary");
+                res.end();
+            });
+        }
+    }
+    this.routes = this.routes.concat(jsClientFile);
 }

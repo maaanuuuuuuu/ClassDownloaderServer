@@ -1,0 +1,24 @@
+{
+  "name": "classdownloaderserver",
+  "version": "1.0.0",
+  "description": "A very simple Framework to create via API Accessible/Manipulable Collections in MongoDB using Node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maaanuuuuuuu/ClassDownloaderServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maaanuuuuuuu/ClassDownloaderServer/issues"
+  },
+  "homepage": "https://github.com/maaanuuuuuuu/ClassDownloaderServer#readme",
+  "dependencies": {
+    "mongojs": "*",
+    "restify": "*"
+  }
+}
